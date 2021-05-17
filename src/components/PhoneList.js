@@ -6,7 +6,7 @@ class PhoneList extends React.Component {
     return (
       <div>
         {
-            (this.props.loading === true) ? 'LOADING PHONES...' : this.props.phones.map(phone => <div key={phone.id}> <div>{phone.name}</div> <div>{phone.model}</div><div>{phone.price}</div> </div>)
+            (this.props.loading === true) ? 'LOADING PHONES...' : this.props.phones.map(phone => <div className = "phoneClass" key={phone.id}> <div>{phone.name}</div> <div>{phone.model}</div><div>{phone.price}</div> </div>)
         }
       </div>
     );

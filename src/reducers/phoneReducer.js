@@ -1,7 +1,7 @@
+import uuid from 'uuid';
 const phoneReducer = (state = {phones: [], loading: false}, action) => {
     switch (action.type) {
         case 'LOADING_PHONES':
-            console.log('loading phones')
             return {
                 ...state,
                 phones:[...state.phones],
@@ -15,6 +15,15 @@ const phoneReducer = (state = {phones: [], loading: false}, action) => {
                 phones: action.phones,
                 loading: false
             }
+        case 'CREATE_PHONE':
+            const phone = {
+                id: uuid(),
+                make: action.phone.make,
+                model: action.phone.model,
+                price: action.phone.price
+            }
+            console.log({...state, phones: [...state.phones, phone]})
+           return {...state, phones: [...state.phones, phone]}
         default:
             return state;
     }
