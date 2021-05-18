@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchPhones } from '../actions/phoneActions';
-import { addPhone } from '../actions/phoneActions';
+import { createPhone } from '../actions/phoneActions';
 import PhoneList from './PhoneList';
+
 class App extends Component {  
   state = {
     make: '',
@@ -19,7 +20,7 @@ class App extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addPhone(this.state)
+    this.props.createPhone(this.state)
     this.setState({
       make: '',
       model: '',
@@ -81,7 +82,7 @@ const mapStateToProps = (state) => {
 }
 const dispatchToProps = (dispatch) => {
   return {
-    addPhone: phone => dispatch(addPhone(phone)),
+    createPhone: phone => dispatch(createPhone(phone)),
     fetchPhones: () => dispatch(fetchPhones())
     
   }

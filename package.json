@@ -18,6 +18,7 @@
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "babel-core": "^6.22.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-airbnb": "^2.1.1",
@@ -29,6 +30,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "expect": "^1.20.2",
     "fetch-mock": "^6.5.2",
+    "immutability-helper": "^3.1.1",
     "mocha-multi": "^1.0.1",
     "nock": "^9.0.9",
     "node-fetch": "^2.6.1",
