@@ -9,6 +9,7 @@ export const fetchPhones = () => {
     }
 }
 export const createPhone = phone => {
+  
   return dispatch => {
     return fetch(`http://localhost:3000/api/phones`, {
       method: "POST",
@@ -30,12 +31,66 @@ export const addPhone = phone => {
     type: 'CREATE_PHONE',
     phone
   }
-} 
+ } 
+// export const removePhone = id => {
+//   return dispatch => {
+//     return fetch(`http://localhost:3000/api/phones/${id}`, {
+//       method: "DELETE",
+//       headers: {
+//         'Content-Type': 'application/json',
+//         "Accept": "application/json"
+//       }
+//     })
+//       .then(response => console.log(response.json()))
+//       .then(id => {
+//         dispatch({type: "DELETE_PHONE"})
+        
+//       })
+//       .catch(error => console.log(error))
+//   }
+// }
 
-export const deletePhone = (id) => {
+// export const removePhone = (phone) => {
+
+//   let configObj = {
+//     method: "DELETE",
+//     headers: {
+//       "Content-Type": "application/json"
+//     }
+//   }
   
-  return {
-    type: 'DELETE_PHONE',
-    id
-  };
-};
+//   return (dispatch) => {
+    
+//     fetch(`http://localhost:3000/api/phones/${phone.id}`, configObj)
+//       .then(resp => resp.json())
+//       .then(data => {
+//         dispatch(deletePhone(data.id))
+//       })
+//   }  
+// }
+// export const deletePhone = id => {
+//   return {
+//     type: 'DELETE_PHONE',
+//     id
+//   }
+//  } 
+export const removePhone = (phone) => {
+  return (dispatch) => {
+    
+    fetch(`http://localhost:3000/api/phones/${phone.id}`,{
+      method: "DELETE",
+      headers:
+      {
+        "Content-Type": "application/json"
+      }
+      })
+      .then(response => {
+        return response.json()
+      })
+      .then(response => {
+        dispatch({ type: 'DELETE_PHONE', phone: response })
+      })
+  }
+}
+
+

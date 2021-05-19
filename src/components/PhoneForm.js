@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchPhones } from '../actions/phoneActions';
 import { createPhone } from '../actions/phoneActions';
 import PhoneList from './PhoneList';
+import {removePhone} from '../actions/phoneActions'
 
 class App extends Component {  
   state = {
@@ -10,6 +11,8 @@ class App extends Component {
     model: '',
     price: 0
   }
+
+
 
   handleOnChange = event => {
     this.setState({
@@ -67,7 +70,7 @@ class App extends Component {
         
         <h4>SEE BELOW OUR PHONE OFFER</h4>
         
-        <PhoneList phones={this.props.phones} loading={this.props.loading}/>
+        <PhoneList phones={this.props.phones} loading={this.props.loading} removePhone={this.props.removePhone}/>
       </div>
       </div>
     );
@@ -83,8 +86,8 @@ const mapStateToProps = (state) => {
 const dispatchToProps = (dispatch) => {
   return {
     createPhone: phone => dispatch(createPhone(phone)),
-    fetchPhones: () => dispatch(fetchPhones())
-    
+    fetchPhones: () => dispatch(fetchPhones()),
+    removePhone: id => dispatch(removePhone(id))
   }
 }
 
