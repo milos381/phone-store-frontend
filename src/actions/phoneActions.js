@@ -75,21 +75,14 @@ export const addPhone = phone => {
 //   }
 //  } 
 export const removePhone = (phone) => {
+  
   return (dispatch) => {
     
     fetch(`http://localhost:3000/api/phones/${phone.id}`,{
-      method: "DELETE",
-      headers:
-      {
-        "Content-Type": "application/json"
-      }
+      method: "DELETE"
       })
-      .then(response => {
-        return response.json()
-      })
-      .then(response => {
-        dispatch({ type: 'DELETE_PHONE', phone: response })
-      })
+      .then(response => {dispatch({ type: 'DELETE_PHONE', phone: phone })})
+      // missing =>  .then(response => {response => response.json()})
   }
 }
 

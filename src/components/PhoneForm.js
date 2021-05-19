@@ -87,7 +87,7 @@ const dispatchToProps = (dispatch) => {
   return {
     createPhone: phone => dispatch(createPhone(phone)),
     fetchPhones: () => dispatch(fetchPhones()),
-    removePhone: id => dispatch(removePhone(id))
+    removePhone: phone => dispatch(removePhone(phone))
   }
 }
 

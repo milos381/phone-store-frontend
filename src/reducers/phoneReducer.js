@@ -26,7 +26,7 @@ const phoneReducer = (state = {phones: [], loading: false}, action) => {
             console.log({...state, phones: [...state.phones, phone]})
            return {...state, phones: [...state.phones, phone]}
         case 'DELETE_PHONE':
-            phonesAfterDelete = state.phones.filter(phone => phone.id !== action.id)
+            phonesAfterDelete = state.phones.filter(phone => phone.id !== action.phone.id)
             
             return {...state, phones: phonesAfterDelete}
         default:
