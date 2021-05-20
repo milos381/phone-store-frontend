@@ -62,10 +62,6 @@ class App extends Component {
         </form>
       </div>
       </div>
-      <div>
-        <h4>CLICK HERE TO REMOVE PHONES</h4>
-        <button> click here </button>
-      </div>
       <div id="showPhones">
         
         <h4>SEE BELOW OUR PHONE OFFER</h4>
