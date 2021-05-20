@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchPhones } from '../actions/phoneActions';
-import { createPhone } from '../actions/phoneActions';
-import {removePhone} from '../actions/phoneActions'
+import { fetchIpads } from '../actions/ipadActions';
+import { createIpads } from '../actions/ipadActions';
+import {removeIpad} from '../actions/ipadActions'
 
-class App extends Component {  
+class IpadForm extends Component {  
   state = {
     make: '',
     model: '',
@@ -22,7 +22,7 @@ class App extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createPhone(this.state)
+    this.props.createIpads(this.state)
     this.setState({
       make: '',
       model: '',
@@ -32,14 +32,14 @@ class App extends Component {
   }
   
   componentDidMount() {
-    this.props.fetchPhones()
+    this.props.fetchIpads()
   }
   render() {
     return (
       <div>
         <h2>STORE MANAGER PAGE</h2>
       <div>
-        <h4>ADD A NEW PHONE</h4>
+        <h4>ADD A NEW IPAD</h4>
         <div>
         <form onSubmit={this.handleOnSubmit} >
           <input
@@ -60,28 +60,27 @@ class App extends Component {
           <input type="submit" />
         </form>
         {
-            (this.props.loading === true) ? 'LOADING PHONES...' : this.props.phones.map(phone => <div className = "phoneClass" key={phone.id}> <div>{phone.make}</div> <div>{phone.model}</div><div>{phone.price}</div> <button onClick={() => this.props.removePhone(phone)}>Delete</button></div>)
+            (this.props.loading === true) ? 'LOADING IPADS...' : this.props.ipads.map(ipad => <div className = "ipadClass" key={ipad.id}> <div>{ipad.make}</div> <div>{ipad.model}</div><div>{ipad.price}</div> <button onClick={() => this.props.removeIpad(ipad)}>Delete</button></div>)
         }
       </div>
       </div>
       </div>
-      
     );
   }
 } 
 const mapStateToProps = (state) => {
    
   return {
-    phones: state.phones,
+    ipads: state.ipads,
     loading: state.loading
   }
 }
 const dispatchToProps = (dispatch) => {
   return {
-    createPhone: phone => dispatch(createPhone(phone)),
-    fetchPhones: () => dispatch(fetchPhones()),
-    removePhone: phone => dispatch(removePhone(phone))
+    createIpads: ipad => dispatch(createIpads(ipad)),
+    fetchIpads: () => dispatch(fetchIpads()),
+    removeIpad: ipad => dispatch(removeIpad(ipad))
   }
 }
 
-export default connect (mapStateToProps, dispatchToProps)(App)
+export default connect (mapStateToProps, dispatchToProps)(IpadForm)

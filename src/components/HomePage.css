@@ -1,0 +1,9 @@
+
+ul {
+    list-style-type: none;
+    margin-left: -40px;
+}
+ul#menu li {
+    display:inline;
+    padding: 10px;
+  }
