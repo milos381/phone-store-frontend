@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchMacBooks } from '../actions/macbookActions';
-import { createMacBooks } from '../actions/macbookActions';
-import {removeMacBook} from '../actions/macbookActions'
+import { fetchMacBooks } from '../actions/macBookActions';
+import { createMacBook } from '../actions/macBookActions';
+import { removeMacBook } from '../actions/macBookActions'
 
 class MacBookForm extends Component {  
   state = {
@@ -22,7 +22,7 @@ class MacBookForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createMacBooks(this.state)
+    this.props.createMacBook(this.state)
     this.setState({
       make: '',
       model: '',
@@ -77,7 +77,7 @@ const mapStateToProps = (state) => {
 }
 const dispatchToProps = (dispatch) => {
   return {
-    createMacBooks: macbook => dispatch(createMacBooks(macbook)),
+    createMacBook: macbook => dispatch(createMacBook(macbook)),
     fetchMacBooks: () => dispatch(fetchMacBooks()),
     removeMacBook: macbook => dispatch(removeMacBook(macbook))
   }

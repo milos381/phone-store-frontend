@@ -8,6 +8,7 @@ import {
   import PhoneList from '../components/PhoneList';
   import MacBookList from '../components/MacBookList';
   import IpadList from '../components/IpadList';
+  import MacBookCard from '../components/MacBookCard';
   import './HomePage.css';
   class HomePage extends Component {
     render() {
@@ -37,8 +38,11 @@ import {
             <Route path="/phones">
               <PhoneList />
             </Route>
-            <Route path="/computers">
+            <Route exact path="/computers">
               <MacBookList />
+            </Route>
+            <Route path="/computers/:id" component={MacBookCard}>
+              <MacBookCard />
             </Route>
             <Route path="/ipads">
               <IpadList />
@@ -53,3 +57,4 @@ import {
     }
   }
 export default HomePage
+

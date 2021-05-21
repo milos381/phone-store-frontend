@@ -8,7 +8,7 @@ export const fetchIpads = () => {
           }, 3000)})
     }
 }
-export const createIpad = ipad => {
+export const createIpads = ipad => {
   
   return dispatch => {
     return fetch(`http://localhost:3000/api/ipads`, {

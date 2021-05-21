@@ -8,7 +8,7 @@ export const fetchMacBooks = () => {
           }, 3000)})
     }
 }
-export const createMacbook = macbook => {
+export const createMacBook = macbook => {
   
   return dispatch => {
     return fetch(`http://localhost:3000/api/macbooks`, {

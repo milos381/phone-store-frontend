@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchIpads } from '../actions/ipadActions';
 import { createIpads } from '../actions/ipadActions';
-import {removeIpad} from '../actions/ipadActions'
+import { removeIpad } from '../actions/ipadActions'
 
 class IpadForm extends Component {  
   state = {
