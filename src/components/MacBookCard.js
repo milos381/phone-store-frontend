@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { fetchMacBooks } from '../actions/macBookActions';
 import { connect } from 'react-redux'
-const MacBookCard = (macbook) => {
+class MacBookCard extends Component {
+  componentDidMount() {
+    this.props.fetchMacBooks()
+  }
 
+  render () {
     return (
         <div>
-          <h5>{macbook.make}</h5>
-          <h3>{macbook.model}</h3>
-          <h6>{macbook.price}</h6>
+             {!(this.props.macbook) ? 'LOADING PAGE...' : <div><div>{this.props.macbook.make}</div><div>{this.props.macbook.model}</div><div>{this.props.macbook.price}</div></div>  /* { (this.props === false) ? 'LOADING...' : this.props.macbook.make} */}
         </div> 
     )
   }
-  const mapStateToProps = (state, {ownProps}) => {
-      console.log(state)
-      console.log(ownProps)
-  }
+}
+  const mapStateToProps = (state, ownProps) => {
+   
+   return {macbook: state.macbooks.find(macbook => macbook.id === parseInt(ownProps.match.params.id, 10))}
+}
   const dispatchToProps = (dispatch) => {
     return {
       fetchMacBooks: () => dispatch(fetchMacBooks())

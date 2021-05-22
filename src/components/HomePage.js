@@ -41,9 +41,7 @@ import {
             <Route exact path="/computers">
               <MacBookList />
             </Route>
-            <Route path="/computers/:id" component={MacBookCard}>
-              <MacBookCard />
-            </Route>
+            <Route path="/computers/:id" component={MacBookCard}/>
             <Route path="/ipads">
               <IpadList />
             </Route>
