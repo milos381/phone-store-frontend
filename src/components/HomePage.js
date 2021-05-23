@@ -9,6 +9,8 @@ import {
   import MacBookList from '../components/MacBookList';
   import IpadList from '../components/IpadList';
   import MacBookCard from '../components/MacBookCard';
+  import IpadCard from '../components/IpadCard';
+  import PhoneCard from '../components/PhoneCard';
   import './HomePage.css';
   class HomePage extends Component {
     render() {
@@ -35,16 +37,21 @@ import {
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           {<Switch>
-            <Route path="/phones">
+            
+            <Route exact path="/phones">
               <PhoneList />
             </Route>
+            <Route path="/phones/:id" component={PhoneCard}/>
+
             <Route exact path="/computers">
               <MacBookList />
             </Route>
             <Route path="/computers/:id" component={MacBookCard}/>
-            <Route path="/ipads">
+
+            <Route exact path="/ipads">
               <IpadList />
             </Route>
+            <Route path="/ipads/:id" component={IpadCard}/>
             {/* <Route path="/">
               <HomePage />
             </Route> */}
