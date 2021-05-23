@@ -11,6 +11,7 @@ import {
   import MacBookCard from '../components/MacBookCard';
   import IpadCard from '../components/IpadCard';
   import PhoneCard from '../components/PhoneCard';
+  import Admin from '../components/Admin';
   import './HomePage.css';
   class HomePage extends Component {
     render() {
@@ -30,6 +31,9 @@ import {
               </li>
               <li>
                 <Link to="/computers">MacBook</Link>
+              </li>
+              <li>
+                <Link to="/admin">Admin</Link>
               </li>
             </ul>
           </nav>
@@ -52,6 +56,10 @@ import {
               <IpadList />
             </Route>
             <Route path="/ipads/:id" component={IpadCard}/>
+
+            <Route exact path="/admin">
+              <Admin />
+            </Route>
             {/* <Route path="/">
               <HomePage />
             </Route> */}
