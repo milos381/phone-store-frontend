@@ -1,4 +1,4 @@
-const reducers = (state = {phones: [], ipads: [], macbooks: [], loading: false}, action) => {
+const reducers = (state = {phones: [], ipads: [], macbooks: [], users: [], token: localStorage.getItem("token"), loading: false}, action) => {
     let macbooksAfterDelete;
     let phonesAfterDelete;
     let ipadsAfterDelete;
@@ -83,6 +83,7 @@ const reducers = (state = {phones: [], ipads: [], macbooks: [], loading: false},
             macbooksAfterDelete = state.macbooks.filter(macbook => macbook.id !== action.macbook.id)
                 
             return {...state, macbooks: macbooksAfterDelete}  
+    
         default:
             return state;
     }
