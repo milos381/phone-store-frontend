@@ -11,31 +11,40 @@ import {
   import MacBookCard from '../components/MacBookCard';
   import IpadCard from '../components/IpadCard';
   import PhoneCard from '../components/PhoneCard';
+  import appleLogoBig from '../images/appleLogo.jpg'
  // import Admin from '../components/Admin';
   import './HomePage.css';
   class HomePage extends Component {
     render() {
       return (
+        <div>
+        <div>
+
+        </div>
         <Router>
         <div>
           <nav>
-            <ul id="menu">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/phones">Iphone</Link>
-              </li>
-              <li>
-                <Link to="/ipads">Ipad</Link>
-              </li>
-              <li>
-                <Link to="/computers">MacBook</Link>
-              </li>
+            <div id="menu">
+              <div className="divCon">
+              <img className = "navLogo" src="https://img.icons8.com/carbon-copy/50/000000/mac-os.png" alt="apple"/>
+                <Link to="/" className="textUnder">Home</Link>
+              </div>
+              <div className="divCon">
+              <img className = "navLogo" src="https://img.icons8.com/carbon-copy/50/000000/iphone-x.png" alt="apple"/>
+                <Link to="/phones" className="textUnder">Iphone</Link>
+              </div>
+              <div className="divCon">
+              <img className = "navLogo" src="https://img.icons8.com/carbon-copy/50/000000/ipad.png" alt="apple"/>
+                <Link to="/ipads" className="textUnder">Ipad</Link>
+              </div>
+              <div className="divCon">
+              <img className = "navLogo" src="https://img.icons8.com/ios/50/000000/macbook.png" alt="apple"/>
+                <Link to="/computers" className="textUnder">MacBook</Link>
+              </div>
               {/* <li>
                 <Link to="/admin">Admin</Link>
               </li> */}
-            </ul>
+            </div>
           </nav>
   
           {/* A <Switch> looks through its children <Route>s and
@@ -66,6 +75,10 @@ import {
           </Switch>}
         </div>
       </Router>
+      <div>
+        <img src={appleLogoBig} alt="appleLogoBig"/>
+      </div>
+      </div>
       );
     }
   }
