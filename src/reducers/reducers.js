@@ -19,10 +19,12 @@ const reducers = (state = {phones: [], ipads: [], macbooks: [], users: [], token
             }
         case 'CREATE_PHONE':
             const phone = {
+                
                 id: action.phone.id,
                 make: action.phone.make,
                 model: action.phone.model,
-                price: action.phone.price
+                price: action.phone.price,
+                img_url: action.phone.img_url
             }
             console.log({...state, phones: [...state.phones, phone]})
            return {...state, phones: [...state.phones, phone]}
@@ -50,7 +52,8 @@ const reducers = (state = {phones: [], ipads: [], macbooks: [], users: [], token
                 id: action.ipad.id,
                 make: action.ipad.make,
                 model: action.ipad.model,
-                price: action.ipad.price
+                price: action.ipad.price,
+                img_url: action.ipad.img_url
             }
             return {...state, ipads: [...state.ipads, ipad]}
         case 'DELETE_IPAD':
@@ -76,7 +79,8 @@ const reducers = (state = {phones: [], ipads: [], macbooks: [], users: [], token
                 id: action.macbook.id,
                 make: action.macbook.make,
                 model: action.macbook.model,
-                price: action.macbook.price
+                price: action.macbook.price,
+                img_url: action.macbook.img_url
             }
             return {...state, macbooks: [...state.macbooks, macbook]}
         case 'DELETE_MACBOOK':

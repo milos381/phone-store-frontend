@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 import { fetchIpads } from '../actions/ipadActions';
 import { createIpads } from '../actions/ipadActions';
 import { removeIpad } from '../actions/ipadActions'
-
+import './CardClass.css';
 class IpadForm extends Component {  
   state = {
     make: '',
     model: '',
+    img_url: '',
     price: 0
   }
 
@@ -26,6 +27,7 @@ class IpadForm extends Component {
     this.setState({
       make: '',
       model: '',
+      img_url: '',
       price: 0
     });
     
@@ -37,7 +39,6 @@ class IpadForm extends Component {
   render() {
     return (
       <div>
-        <h2>STORE MANAGER PAGE</h2>
       <div>
         <h4>ADD A NEW IPAD</h4>
         <div>
@@ -56,11 +57,16 @@ class IpadForm extends Component {
             name="price"
             type="number"
             value={this.state.price}
+            onChange={this.handleOnChange} /><br/>
+            <input
+            name="img_url"
+            type="text"
+            value={this.state.img_url}
             onChange={this.handleOnChange} /><br/><br/>
           <input type="submit" />
         </form>
         {
-            (this.props.loading === true) ? 'LOADING IPADS...' : this.props.ipads.map(ipad => <div className = "ipadClass" key={ipad.id}> <div>{ipad.make}</div> <div>{ipad.model}</div><div>{ipad.price}</div> <button onClick={() => this.props.removeIpad(ipad)}>Delete</button></div>)
+            (this.props.loading === true) ? 'LOADING IPADS...' : this.props.ipads.map(ipad => <div className = "ipadClass" key={ipad.id}> <div>{ipad.make}</div> <div>{ipad.model}</div><div>{ipad.price}</div><div><img className="img" src={ipad.img_url} alt={ipad.model} /></div> <button onClick={() => this.props.removeIpad(ipad)}>Delete</button></div>)
         }
       </div>
       </div>

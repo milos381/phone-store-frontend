@@ -11,13 +11,13 @@ import {
   import MacBookCard from '../components/MacBookCard';
   import IpadCard from '../components/IpadCard';
   import PhoneCard from '../components/PhoneCard';
-  import appleLogoBig from '../images/appleLogo.jpg'
- // import Admin from '../components/Admin';
+  //import appleLogoBig from '../images/appleLogo.jpg'
+  import Settings from './Settings';
   import './HomePage.css';
   class HomePage extends Component {
     render() {
       return (
-        <div>
+        <div style={{ backgroundImage: "url(../images/appleLogo.jpg)" }}>
         <div>
 
         </div>
@@ -41,9 +41,10 @@ import {
               <img className = "navLogo" src="https://img.icons8.com/ios/50/000000/macbook.png" alt="apple"/>
                 <Link to="/computers" className="textUnder">MacBook</Link>
               </div>
-              {/* <li>
-                <Link to="/admin">Admin</Link>
-              </li> */}
+              <div className="divCon">
+              <img  className = "navLogo" src="https://img.icons8.com/wired/50/000000/settings.png" alt="apple"/>
+                <Link to="/settings" className="textUnder">Settings</Link>
+              </div>
             </div>
           </nav>
   
@@ -66,17 +67,14 @@ import {
             </Route>
             <Route path="/ipads/:id" component={IpadCard}/>
 
-            {/* <Route exact path="/admin">
-              <Admin />
-            </Route> */}
-            {/* <Route path="/">
-              <HomePage />
-            </Route> */}
+            <Route exact path="/settings">
+              <Settings />
+            </Route>
           </Switch>}
         </div>
       </Router>
       <div>
-        <img src={appleLogoBig} alt="appleLogoBig"/>
+        {/* <img src={appleLogoBig} alt="appleLogoBig"/> */}
       </div>
       </div>
       );

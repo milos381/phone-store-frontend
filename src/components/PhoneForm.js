@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 import { fetchPhones } from '../actions/phoneActions';
 import { createPhone } from '../actions/phoneActions';
 import {removePhone} from '../actions/phoneActions'
-
+import './CardClass.css';
 class App extends Component {  
   state = {
     make: '',
     model: '',
+    img_url: '',
     price: 0
   }
 
@@ -26,6 +27,7 @@ class App extends Component {
     this.setState({
       make: '',
       model: '',
+      img_url: '',
       price: 0
     });
     
@@ -37,7 +39,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h2>STORE MANAGER PAGE</h2>
       <div>
         <h4>ADD A NEW PHONE</h4>
         <div>
@@ -56,11 +57,16 @@ class App extends Component {
             name="price"
             type="number"
             value={this.state.price}
+            onChange={this.handleOnChange} /><br/>
+            <input
+            name="img_url"
+            type="text"
+            value={this.state.img_url}
             onChange={this.handleOnChange} /><br/><br/>
           <input type="submit" />
         </form>
         {
-            (this.props.loading === true) ? 'LOADING PHONES...' : this.props.phones.map(phone => <div className = "phoneClass" key={phone.id}> <div>{phone.make}</div> <div>{phone.model}</div><div>{phone.price}</div> <button onClick={() => this.props.removePhone(phone)}>Delete</button></div>)
+            (this.props.loading === true) ? 'LOADING PHONES...' : this.props.phones.map(phone => <div className = "phoneClass" key={phone.id}> <div>{phone.make}</div> <div>{phone.model}</div><div>{phone.price}</div> <div><img className="img" src={phone.img_url} alt={phone.model} /></div><button onClick={() => this.props.removePhone(phone)}>Delete</button></div>)
         }
       </div>
       </div>
