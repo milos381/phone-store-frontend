@@ -66,7 +66,7 @@ class MacBookForm extends Component {
           <input type="submit" />
         </form>
         {
-            (this.props.loading === true) ? 'LOADING MACBOOKS...' : this.props.macbooks.map(macbook => <div className = "macbookClass" key={macbook.id}> <div>{macbook.make}</div> <div>{macbook.model}</div><div>{macbook.price}</div> <div><img className="img" src={macbook.img_url} alt={macbook.model} /></div> <button onClick={() => this.props.removeMacBook(macbook)}>Delete</button></div>)
+            (this.props.loading === true) ? 'LOADING MACBOOKS...' : this.props.macbooks.map(macbook => <div className = "macbookClass" key={macbook.id}> <div>{macbook.make}</div> <div>{macbook.model}</div><div>{macbook.price}</div> <div><img className="imgMacbook" src={macbook.img_url} alt={macbook.model} /></div> <button onClick={() => this.props.removeMacBook(macbook)}>Delete</button></div>)
         }
       </div>
       </div>

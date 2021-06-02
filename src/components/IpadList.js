@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { fetchIpads } from '../actions/ipadActions';
 import { Link } from 'react-router-dom'
-import './Showpage.css';
-//import IpadForm from './IpadForm';
+import './CardClass.css';
 class IpadList extends React.Component {
   componentDidMount() {
     this.props.fetchIpads()
@@ -12,17 +11,14 @@ class IpadList extends React.Component {
     return (
       <div>
       <div>
-        {/* { <IpadForm/>} */}
-      </div><br/><br/><br/>
-      <div>
         
         {
             
             (this.props.loading === true) ? 'LOADING IPADS...' : this.props.ipads.map(ipad => (
               <div className = "macbookClass" key={ipad.id} > 
                   <Link to={`/ipads/${ipad.id}`}> 
-                    <div className='showpage'>{ipad.make}</div>     
-                    <div className='showpage'>{ipad.model}</div>
+                  <div className='showpage'><h4>{ipad.model}</h4></div>
+                <div>{<img className="imgCard" src={ipad.img_url} alt={ipad.model}></img>}</div>
                   </Link>
               </div>
             ))

@@ -2,26 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { fetchPhones } from '../actions/phoneActions';
 import { Link } from 'react-router-dom'
-import './Showpage.css';
-//import PhoneForm from './PhoneForm';
+import './CardClass.css';
 class PhoneList extends React.Component {
   componentDidMount() {
     this.props.fetchPhones()
   }
   render() {
-    console.log(this.props.phones)
     return (
       <div>
-      <div>
-        {/* { <PhoneForm/>} */}
-      </div><br/><br/><br/>
       <div>
         {
           (this.props.loading === true) ? 'LOADING PHONES...' : this.props.phones.map(phone => (
             <div className = "macbookClass" key={phone.id} > 
-              <Link to={`/phones/${phone.id}`}> 
-                <div className='showpage'>{phone.make}</div>     
-                <div className='showpage'>{phone.model}</div>
+              <Link to={`/phones/${phone.id}`}>    
+                <div className='showpage'><h4>{phone.model}</h4></div>
+                <div>{<img className="imgCard" src={phone.img_url} alt={phone.model}></img>}</div>
               </Link>
             </div>
           ))
